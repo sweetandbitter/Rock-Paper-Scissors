@@ -70,7 +70,42 @@ function gameStart(){
 }
 
 function gameRestart(){
-	
+	clearInterval(timer);
+	botChoice.innerHTML = "";
+	for(var i = 0; i < result.length; i++){
+		result[i].innerHTML = 0;
+	}
 	gameStart();
 }
 
+function chooseOne(e){
+	var player = e.target.value;
+	var bot = getRandom();
+	wins = result[0].innerHTML;
+	losses = result[1].innerHTML;
+	draws = result[2].innerHTML;
+	botChoice.innerHTML = bot;
+	if((player === "rock" && bot === "scissors") || (player === "scissors" && bot === "paper") || (player === "paper" && bot === "rock")){
+		wins++;
+	}
+	if((player === "rock" && bot === "paper") || (player === "scissors" && bot === "rock") || (player === "paper" && bot === "scissors")){
+		losses++;
+	}
+	if((player === "rock" && bot === "rock") || (player === "scissors" && bot === "scissors") || (player === "paper" && bot === "paper")){
+		draws++;
+	}
+	result[0].innerHTML = wins;
+	result[1].innerHTML = losses;
+	result[2].innerHTML = draws;
+}
+
+function getRandom(){
+	var i = Math.floor(Math.random() * 3);
+	if(i === 0){
+		return "rock";
+	}else if(i === 1){
+		return "paper";
+	}else{
+		return "scissors";
+	}
+}
