@@ -1,0 +1,22 @@
+.whole{
+	margin:auto;
+	width: 500px;
+	padding: 30px
+}
+.sectionBlock{
+	padding: 5px;
+	margin: 5px;
+}
+.input{
+	margin-bottom: 10px;
+}
+#minutes{
+	margin-bottom: 5px;
+}
+#hurry-up{
+	color: red;
+}
+.showResult{
+	display: inline-block;
+	width: 120px;
+}

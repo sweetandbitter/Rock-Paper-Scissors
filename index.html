@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock – Paper – Scissors</title>
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<div class="whole">
+		<div class="sectionBlock">
+			<div>
+				<div class="input">Please input your play time minutes</div>
+				<input type="number"  id="minutes" value="0"><br/>
+			</div>
+			<div>
+				<div class="number">Please input your play time seconds</div>
+				<input type="text" id="seconds" value="0">
+			</div> 
+		</div>
+		<div class="sectionBlock">
+			<div>
+				You have <span id="timeRemain">00:00</span> remaining. <span id="hurryUp"></span>
+			</div>
+		</div>
+		<div class="sectionBlock">
+			<input type="button" value="rock" class="choice" disabled>
+			<input type="button" value="paper" class="choice" disabled>
+			<input type="button" value="scissors" class="choice" disabled>
+		</div>
+		<div class="sectionBlock">
+			bot chose: <span id="botChoice"></span>
+		</div>
+		<div class="sectionBlock">
+			<span class="showResult">wins: <span class="result">0</span></span>
+			<span class="showResult">losses: <span class="result">0</span></span>
+			<span class="showResult">draws: <span class="result">0</span></span>
+		</div>
+		<div class="sectionBlock">
+			<input type="button" value="game start" id="start">
+			<input type="button" value="game restart" id="restart">
+		</div>
+		<div class="sectionBlock">game result:</div>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+</html>
