@@ -15,18 +15,29 @@ var draws;
 var timer;
 
 function gameStart(){
-	var min = parseInt(document.getElementById("minutes").value);
-	var sec = parseInt(document.getElementById("seconds").value);
 	var timeRemain = document.getElementById("timeRemain");
 	var finalResult = document.getElementById("final");
 	var hurryUp = document.getElementById("hurryUp");
+	var min = Number(document.getElementById("minutes").value);
+	var sec = Number(document.getElementById("seconds").value);
+	if(isValidate(min, sec) === false){
+		return;
+	}
 	var count = min * 60 + sec - 1;
-	timer = setInterval(stateChange, 1000);
+	
+	finalResult.innerHTML = "";
+	botChoice.innerHTML = "";
 	hurryUp.innerHTML = "";
+
+	for(var i = 0; i < result.length; i++){
+		result[i].innerHTML = 0;
+	}
+	timer = setInterval(stateChange, 1000);
 	timeRemain.style.color = "black";
 	for (var i = 0; i < choice.length; i++){
 		choice[i].disabled = false;
 	}
+
 	btnStart.disabled = true;
 	function formatTime(min, sec){
         var minFormat = (min < 10) ? "0" + min : min;
@@ -50,7 +61,6 @@ function gameStart(){
 			} else {
 				finalResult.innerHTML = "draw";
 			}
-			console.log(wins, losses, draws);
 			for (var i = 0; i < choice.length; i++)
 			{
 				choice[i].disabled = true;
@@ -68,13 +78,14 @@ function gameStart(){
 		count--;
 	}
 }
-
+function isValidate(min, sec){
+	if(!Number.isInteger(min) || !Number.isInteger(sec)){
+		alert("Please input a integer!")
+		return false;
+	}
+}
 function gameRestart(){
 	clearInterval(timer);
-	botChoice.innerHTML = "";
-	for(var i = 0; i < result.length; i++){
-		result[i].innerHTML = 0;
-	}
 	gameStart();
 }
 

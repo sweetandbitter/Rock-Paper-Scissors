@@ -9,11 +9,11 @@
 		<div class="sectionBlock">
 			<div>
 				<div class="input">Please input your play time minutes</div>
-				<input type="number"  id="minutes" value="0"><br/>
+				<input type="number"  id="minutes" value="0" min="0" max="59" required><br/>
 			</div>
 			<div>
-				<div class="number">Please input your play time seconds</div>
-				<input type="text" id="seconds" value="0">
+				<div class="input">Please input your play time seconds</div>
+				<input type="number" id="seconds" value="0" min="0" max="59" required>
 			</div> 
 		</div>
 		<div class="sectionBlock">
@@ -38,7 +38,7 @@
 			<input type="button" value="game start" id="start">
 			<input type="button" value="game restart" id="restart">
 		</div>
-		<div class="sectionBlock">game result:</div>
+		<div class="sectionBlock">game result: <span id="final"></span></div>
 	</div>
 	<script src="js/script.js"></script>
 </body>
