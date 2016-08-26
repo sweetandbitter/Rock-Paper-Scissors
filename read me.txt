@@ -1,0 +1,21 @@
+This Di Yao Rock-Paper-Scissors assignment.
+
+1. Using HTML5, CSS3, and Vanilla JS to finish this assignment.
+
+2. first part contain two input as minute and second. Adding form validation to limit inputs are integer between 0 to 59.
+
+3. Showing time remaining after input, and time will be red if it is in 10 second, and will show hurry up. After game stop it will show Game over.
+
+4. When game start button of choice rock, paper, scissors buttons will be able to click, and when it is clicked, the bot chose and result of wins, losses and draws will update. after game finished buttons will be disable.
+
+5. Game start button will start game and time will count dow, and start button will disable when game start and recover after game is over. 
+
+6. Game restart button will be able to click at any time, even game is running. It will restart the game and reset the all the result and time. When the game is running you can change minute and second and restart it.
+
+7. game result will show game result.
+
+8. this assignment using css3 media query to make responsive web page.
+
+That is the introduction of this assignment.Because of this week is really busy, css part may be a little simple. Thank you.
+
+Di Yao 8/25/2016
