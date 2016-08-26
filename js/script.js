@@ -18,9 +18,11 @@ function gameStart(){
 	var timeRemain = document.getElementById("timeRemain");
 	var finalResult = document.getElementById("final");
 	var hurryUp = document.getElementById("hurryUp");
-	var min = Number(document.getElementById("minutes").value);
-	var sec = Number(document.getElementById("seconds").value);
-	if(isValidate(min, sec) === false){
+	var minute = document.getElementById("minutes").value;
+	var second = document.getElementById("seconds").value;
+	var min = Number(minute);
+	var sec = Number(second);
+	if (isNotValidate(minute, min) || isNotValidate(second, sec)){
 		return;
 	}
 	var count = min * 60 + sec - 1;
@@ -29,7 +31,7 @@ function gameStart(){
 	botChoice.innerHTML = "";
 	hurryUp.innerHTML = "";
 
-	for(var i = 0; i < result.length; i++){
+	for (var i = 0; i < result.length; i++){
 		result[i].innerHTML = 0;
 	}
 	timer = setInterval(stateChange, 1000);
@@ -39,12 +41,12 @@ function gameStart(){
 	}
 
 	btnStart.disabled = true;
+	timeRemain.innerHTML = formatTime(min, sec); 
 	function formatTime(min, sec){
         var minFormat = (min < 10) ? "0" + min : min;
 	    var secFormat = (sec < 10) ? "0" + sec : sec;
 	    return minFormat + ":" + secFormat;
 	}
-	timeRemain.innerHTML = formatTime(min, sec); 
 	function stateChange(min,sec){
 		var min = Math.floor(count / 60);
 		var sec = count % 60;
@@ -65,6 +67,7 @@ function gameStart(){
 			{
 				choice[i].disabled = true;
 			}
+			wins = 0; losses = 0; draws = 0;
 			return;
 		}
 		timeRemain.innerHTML = formatTime(min, sec);
@@ -78,11 +81,20 @@ function gameStart(){
 		count--;
 	}
 }
-function isValidate(min, sec){
-	if(!Number.isInteger(min) || !Number.isInteger(sec)){
-		alert("Please input a integer!")
-		return false;
+function isNotValidate(stringInput, numberInput){
+	if (stringInput === ""){
+		alert("input can not be empty")
+		return true;
 	}
+	if (!Number.isInteger(numberInput)){
+		alert("Input is not a Integer");
+		return true;
+	}
+	if (numberInput < 0 || numberInput > 59){
+		alert("Input must be between 0 and 59");
+		return true;
+	}
+	return false;
 }
 function gameRestart(){
 	clearInterval(timer);
@@ -96,13 +108,13 @@ function chooseOne(e){
 	losses = result[1].innerHTML;
 	draws = result[2].innerHTML;
 	botChoice.innerHTML = bot;
-	if((player === "rock" && bot === "scissors") || (player === "scissors" && bot === "paper") || (player === "paper" && bot === "rock")){
+	if ((player === "rock" && bot === "scissors") || (player === "scissors" && bot === "paper") || (player === "paper" && bot === "rock")){
 		wins++;
 	}
-	if((player === "rock" && bot === "paper") || (player === "scissors" && bot === "rock") || (player === "paper" && bot === "scissors")){
+	if ((player === "rock" && bot === "paper") || (player === "scissors" && bot === "rock") || (player === "paper" && bot === "scissors")){
 		losses++;
 	}
-	if((player === "rock" && bot === "rock") || (player === "scissors" && bot === "scissors") || (player === "paper" && bot === "paper")){
+	if ((player === "rock" && bot === "rock") || (player === "scissors" && bot === "scissors") || (player === "paper" && bot === "paper")){
 		draws++;
 	}
 	result[0].innerHTML = wins;
@@ -112,11 +124,11 @@ function chooseOne(e){
 
 function getRandom(){
 	var i = Math.floor(Math.random() * 3);
-	if(i === 0){
+	if (i === 0){
 		return "rock";
-	}else if(i === 1){
+	} else if(i === 1){
 		return "paper";
-	}else{
+	} else{
 		return "scissors";
 	}
 }

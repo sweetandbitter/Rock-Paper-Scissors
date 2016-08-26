@@ -1,22 +1,62 @@
-.whole{
+#title {
+	padding:10px;
+	text-align: center;
+}
+
+.whole {
 	margin:auto;
-	width: 500px;
-	padding: 30px
+	padding: 10px
 }
-.sectionBlock{
-	padding: 5px;
-	margin: 5px;
+
+.sectionBlock {
+	width:50%;
+	float: left;
 }
-.input{
+
+.inputBlock {
+	margin: 15px;
+}
+
+.input {
 	margin-bottom: 10px;
 }
-#minutes{
+
+#minutes {
 	margin-bottom: 5px;
 }
-#hurry-up{
+
+.timeRemain div{
+	margin-bottom: 10px;
+}
+#hurry-up {
 	color: red;
 }
-.showResult{
+
+.txtchoose {
+    margin-bottom: 10px;
+}
+.gameResult{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.btnChoose {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.showResult {
 	display: inline-block;
 	width: 120px;
+}
+
+.formvalidate {
+	color: red;
+}
+@media only screen and (max-width: 768px) {
+    .sectionBlock {
+        width: 100%;
+    }
+    .txtchoose {
+    	margin-top: 20px;
+    	margin-bottom: 10px;
+    }
 }

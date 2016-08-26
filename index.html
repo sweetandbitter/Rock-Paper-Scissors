@@ -5,41 +5,47 @@
 	<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-	<div class="whole">
+	<div id="title"><h1>Welcome to game of Rock&#8211Paper&#8211Scissors</h1></div>
+	<form class="whole">
 		<div class="sectionBlock">
-			<div>
+			<div>This is the input part of game.Please input integer between 0 to 59.</div>
+			<div class="inputBlock">
 				<div class="input">Please input your play time minutes</div>
-				<input type="number"  id="minutes" value="0" min="0" max="59" required><br/>
+				<input type="number"  id="minutes" value="0" min="0" max="59" required/>
+				<span class="formvalidate"></span><br/>
 			</div>
-			<div>
+			<div class="inputBlock">
 				<div class="input">Please input your play time seconds</div>
-				<input type="number" id="seconds" value="0" min="0" max="59" required>
+				<input type="number" id="seconds" value="0" min="0" max="59"/>
+				<span class="formvalidate"></span>
 			</div> 
-		</div>
-		<div class="sectionBlock">
-			<div>
-				You have <span id="timeRemain">00:00</span> remaining. <span id="hurryUp"></span>
+			<div class="timeRemain">
+				<div> Your remain time of game shows as below:</div>
+				There is <span id="timeRemain">00:00</span> remaining. <span id="hurryUp"></span>
 			</div>
 		</div>
 		<div class="sectionBlock">
-			<input type="button" value="rock" class="choice" disabled>
-			<input type="button" value="paper" class="choice" disabled>
-			<input type="button" value="scissors" class="choice" disabled>
+		    <div class="txtchoose">When you start game you can choose the button.</div>
+			<div class="btnChoose">
+				<input type="button" value="rock" class="choice" disabled>
+				<input type="button" value="paper" class="choice" disabled>
+				<input type="button" value="scissors" class="choice" disabled>
+			</div>
+			<div class="gameResult">
+				<div>bot chose: <span id="botChoice"></span></div>
+			</div>
+			<div class="gameResult">
+				<span class="showResult">wins: <span class="result">0</span></span>
+				<span class="showResult">losses: <span class="result">0</span></span>
+				<span class="showResult">draws: <span class="result">0</span></span>
+			</div>
+			<div class="btnChoose">
+				<input type="button" value="game start" id="start">
+				<input type="button" value="game restart" id="restart">
+			</div>
+			<div class="gameResult">game result: <span id="final"></span></div>
 		</div>
-		<div class="sectionBlock">
-			bot chose: <span id="botChoice"></span>
-		</div>
-		<div class="sectionBlock">
-			<span class="showResult">wins: <span class="result">0</span></span>
-			<span class="showResult">losses: <span class="result">0</span></span>
-			<span class="showResult">draws: <span class="result">0</span></span>
-		</div>
-		<div class="sectionBlock">
-			<input type="button" value="game start" id="start">
-			<input type="button" value="game restart" id="restart">
-		</div>
-		<div class="sectionBlock">game result: <span id="final"></span></div>
-	</div>
+	</form>
 	<script src="js/script.js"></script>
 </body>
 </html>
